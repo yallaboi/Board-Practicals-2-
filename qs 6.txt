@@ -1,0 +1,80 @@
+import sys
+import mysql.connector
+mydb=mysql.connector.connect(host='localhost',user='root',passwd='', database= 'MovieRating')
+mycursor=mydb.cursor()
+
+#a. CREATING THE DATABASE MOVIERATING
+mycursor.execute("create database MovieRating")
+mycursor.execute("use MovieRating")
+
+#b. CREATING TABLES MOVIES AND RATINGS
+mycursor.execute("create table movies(id int(5),Title varchar(23),release_year date,genre varchar(10), collection_in_million int(6))")
+mycursor.execute("create table ratings(movie_id int(5), rating int(9))")
+
+#c. DISPLAYING THE STRUCTURE OF THE TABLES
+mycursor.execute("describe movies")
+for x in mycursor:
+    print(x)
+print()
+mycursor.execute('describe ratings')
+for y in mycursor:
+    print(y)
+
+#d. INSERT 5 RECORDS INTO TABLE MOVIES AND RATINGS
+
+rec1=[(231,'mission impossible','1999-03-23','action',652000),(121,'turbo','2011-04-12','animated',500023),
+      (534,'cars','2009-05-18','animated',766355),(762,'knives out','2019-06-19','mystery',991027),(232,'cars2','2013-09-21','animated',998988)]
+mycursor.executemany("insert into movies values(%s,%s,%s,%s,%s)",rec1)
+mydb.commit()
+print("records inserted")
+mycursor.execute("select*from movies")
+r=mycursor.fetchall()
+for i in r:
+    print(i)
+    
+rec2=[(231,9),(121,6),(762,7),(534,10),(232,8)]
+mycursor.executemany("insert into ratings values(%s,%s)",rec2)
+mydb.commit()
+mycursor.execute("select*from ratings")
+
+a=mycursor.fetchall()
+
+for j in a:
+    print(j)
+
+# e)  Display those movies whose release year is before 2015
+
+mycursor.execute ('Select * from movies where release_year < "2015-01-01"')
+a= mycursor.fetchall()
+
+for i in a:
+    print(i)
+
+# f ) Display the ratings based on the user input movie_id
+
+x= int(input('Enter the movie ID for ratings to be displayed'))
+comm = 'Select rating from ratings where movie_id = %s'
+y=(x,)
+mycursor.execute(comm,y)
+
+a= mycursor.fetchall()
+
+for k in a:
+    print(k)
+
+# g) Delete those movies whose release year is before 2000.
+
+mycursor.execute ('delete from movies where release_year < "2000-01-01"')
+mydb.commit()
+
+print(' Movies released before 2000 is deleted')
+
+#h)  Change the title of the movie to a new title accepted from the user of those movie_id  wich matches with the user input movie_id.
+
+userid=int(input('Enter the movie ID to change title'))
+newtitle=input('Enter the new title')
+comm='update movies set Title = %s where id = %s'
+usr=(newtitle, userid)
+mycursor.execute(comm, usr)
+mydb.commit()
+
