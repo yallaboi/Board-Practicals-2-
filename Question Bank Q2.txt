@@ -1,0 +1,45 @@
+import pickle
+
+def AddCust():
+    file=open("Customer.dat","ab")
+    customer={}
+    C_id=int(input("Enter the id: "))
+    Cname=input("Enter the name of the customer: ")
+    City=input("Enter the City: ")
+    Email=input("Enter the Email address: ")
+    customer['C_id']=C_id
+    customer['Name']=Cname
+    customer['City']=City
+    customer['Email']=Email
+    pickle.dump(customer,file)
+    return customer
+    file.close()
+
+def SearchCust():
+    file=open("Customer.dat","rb")
+    Name=input("Enter the name of the customer: ")
+    while True:
+        customer=pickle.load(file)
+        try:
+            if customer['Name']==Name:
+                print("C_id:",customer['C_id'])
+                print("Name:",customer['Name'])
+                print('City:',customer['City'])
+                print('Email:',customer['Email'])
+                break
+        except:
+           continue
+    file.close()
+
+while True:
+    print("1. Add a customer")
+    print("2. Search a customer")
+    print("3. Exit")
+    choice=int(input("Enter your choice: "))
+    if choice==1:
+        AddCust()
+        print("Record added successfully!")
+    elif choice==2:
+        SearchCust()
+    elif choice==3:
+        break
