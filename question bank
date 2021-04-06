@@ -1,0 +1,66 @@
+Files :
+1.	Consider Student.dat binary file which contains data for Rollno,Name and marks :
+Do the following for the above file.
+a.	Write a user-defined function to display all those students who have scored  
+less than 40 from the binary file “Student.dat”. 
+b.	Write a function that accepts filename and rollno as parameters and update     
+the name of the student for the given rollno in the file. 
+
+2.	Consider Customer.dat binary file already existing. Do the following operations :
+a.	Write a function AddCust() , to add a Customer with the following details in the file  C_id, Cname, City and Email
+b.	Write a function SearchCust() , to search for a Customer entered by the user.
+
+3.	Write a program to do the following: 
+a.	Write functions CreateBin() to create and ReadBin() to read and display the records of a binary file “employee” that stores the records of employees (Empid,Ename,Salary)  
+b.	Write a function disp_sal() to display the records of all those employees who are getting salaries between 25000 to 30000. 
+
+4.	Write a function CountTheA(), which reads the contents of a text file Sample.txt and prints those lines which has the words The or A. Also print their count in those lines.(not case sensitive). 
+5.	Write a function AECountf), which should reads each character of a text file. IMP.TXT, should count and display the occurrence of alphabets A and E (including small cases a and e too).
+
+Connectivity Questions :
+
+1.	Write a function dataret() , a MySQL-Python connectivity to retrieve data from city table for employees with id less than 10.
+
+2.	Write a function members() to connect Python with MYSQL using table Members present in the database ‘Society’ and insert one row of data. The fields in the member table are Memid, MName, City and email.
+3.	
+
+
+
+4.	WAP to create a tables "Student" ( Rollno, Name, Age and City) , "Marks" (Rollno, eng,math,cs,phy,chem) in the School database. Insert 1 record in each table. Also display the records from each table.
+5.	WAP to create a table Emp with fields such as empno , name , dept and salary. Insert 3 employees data in the table. Display the data on screen using Python script.  Also display those records whose salary is greater than 10000.
+6.	Consider an online movie rating system. The database will consist of 2 tables:
+movies contains general information about movies and has the following attributes:
+o	id
+o	title
+o	release_year
+o	genre
+o	collection_in_mil
+ratings contains information about ratings that have been posted and has the following attributes:
+o	movie_id 
+o	rating
+Do the following for the above system :
+a)	Create the database MovieRating. 
+b)	Create the above tables
+c)	Show the Structure of the tables.
+d)	Insert 5 data in each table and display the data of each table.
+e)	Display those movies whose release year is before 2015 
+f)	Display the ratings based on the user input movie_id
+g)	Delete those movies whose release year is before 2000.
+h)	Change the title of the movie to a new title accepted from the user of those movie_id  wich matches with the user input movie_id.
+
+
+7.	Write a program to do the following :
+a.	Write names ,rollnos and Percentage of 5 students each into 2 sections of a class into Text files i.e Section12A.txt and Section12B.txt.Also display both the files.
+b.	Create a new text file “Distinction.txt” which transfers those students who have percentage> 90 from the above two files and display the file.
+Stack:
+1.	Write a menu driven program in Python to implement stack for book details (Bookno , Bname , Price). Implement Push , Display and Pop operations.
+2.	Write a menu driven program to perform insert , display and delete operations on a stack containing Video details as given in the form of list definition  :
+
+Videoid                  integer
+NameofVideo        String
+Rent                       integer
+3.	Each node of a Stack contains the following information :
+i)	Pincode of a city
+ii)   Name of City
+Write a menu driven program to implement Push , Pop and Display of the node which is in the form of tuple (pin,name)
+
